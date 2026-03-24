@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #7BB5A0;
+  --color-primary-dark: #5A9A83;
+  --color-accent: #F4A261;
+  --color-accent-dark: #E08C3E;
+  --color-bg: #FAFAF8;
+  --color-text: #2D3748;
+  --color-card: #FFFFFF;
+}
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+  background-color: #E5E7EB;
+  color: #2D3748;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Hiragino Kaku Gothic ProN", "Hiragino Sans", Meiryo, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Phone frame */
+.phone-frame {
+  position: relative;
+  width: 390px;
+  height: 844px;
+  background: #000;
+  border-radius: 50px;
+  padding: 12px;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3), 0 0 0 2px #333, inset 0 0 0 2px #1a1a1a;
+}
+
+.phone-notch {
+  position: absolute;
+  top: 12px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 126px;
+  height: 34px;
+  background: #000;
+  border-radius: 0 0 20px 20px;
+  z-index: 100;
+}
+
+.phone-screen {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  border-radius: 40px;
+  overflow: hidden;
+  background-color: #FAFAF8;
+  display: flex;
+  flex-direction: column;
+}
+
+.phone-screen > main {
+  flex: 1;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.phone-screen > nav {
+  flex-shrink: 0;
+}
