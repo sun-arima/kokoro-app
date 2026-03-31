@@ -85,7 +85,7 @@ export default function HomePage() {
                   <span className="text-sm">👨</span>
                 </div>
               </div>
-              <p className="text-sm text-gray-500">娘さん、息子さんはみました</p>
+              <p className="text-sm text-gray-500">花子、太郎は見ました</p>
             </div>
           </div>
         </Card>

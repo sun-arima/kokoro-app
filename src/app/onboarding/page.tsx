@@ -48,9 +48,9 @@ const slides = [
     ),
   },
   {
-    title: '顔を撮り、心の状態を測定します',
+    title: '心の健康をサポートします',
     description:
-      '毎日の心の状態を見える化して、あなたの心の健康をサポートします。',
+      '顔を撮るだけで心の状態を測定。毎日の変化を見える化します。',
     visual: (
       <div className="flex flex-col items-center gap-5">
         {/* Camera icon */}
