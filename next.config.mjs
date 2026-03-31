@@ -1,8 +1,10 @@
 /** @type {import('next').NextConfig} */
+const isProd = process.env.NODE_ENV === 'production';
+
 const nextConfig = {
   output: 'export',
-  basePath: '/kokoro-app',
-  assetPrefix: '/kokoro-app/',
+  basePath: isProd ? '/kokoro-app' : '',
+  assetPrefix: isProd ? '/kokoro-app/' : '',
   images: {
     unoptimized: true,
   },

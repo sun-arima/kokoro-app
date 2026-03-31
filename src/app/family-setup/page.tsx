@@ -16,24 +16,18 @@ function Toggle({ label, value, onChange }: ToggleProps) {
   return (
     <div className="flex items-center justify-between py-3">
       <span className="text-base text-text flex-1 pr-3">{label}</span>
-      <div className="flex gap-2">
-        <button
-          onClick={() => onChange(true)}
-          className={`px-4 py-1.5 rounded-xl text-base font-bold transition-colors ${
-            value ? 'bg-primary text-white' : 'bg-gray-100 text-gray-400'
+      <button
+        onClick={() => onChange(!value)}
+        className={`w-14 h-8 rounded-full relative transition-colors ${
+          value ? 'bg-primary' : 'bg-gray-300'
+        }`}
+      >
+        <div
+          className={`w-6 h-6 rounded-full bg-white shadow-md absolute top-1 transition-all ${
+            value ? 'left-7' : 'left-1'
           }`}
-        >
-          はい
-        </button>
-        <button
-          onClick={() => onChange(false)}
-          className={`px-4 py-1.5 rounded-xl text-base font-bold transition-colors ${
-            !value ? 'bg-gray-400 text-white' : 'bg-gray-100 text-gray-400'
-          }`}
-        >
-          いいえ
-        </button>
-      </div>
+        />
+      </button>
     </div>
   );
 }
@@ -62,7 +56,10 @@ export default function FamilySetupPage() {
     <PageWrapper>
       <div className="flex flex-col h-[calc(100vh-80px)] max-h-[740px] justify-between">
         <div>
-          <h1 className="text-2xl font-bold text-text text-center mb-5">家族共有設定</h1>
+          <h1 className="text-2xl font-bold text-text text-center mb-3">家族共有設定</h1>
+          <p className="text-sm text-gray-500 text-center leading-relaxed mb-5">
+            あなたの記録を家族に共有するかどうかを設定できます。あとから変更することもできます。
+          </p>
 
           <Card className="mb-4">
             <p className="text-sm font-medium text-gray-400 mb-2">共有する情報を選択</p>

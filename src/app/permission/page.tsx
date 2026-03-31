@@ -13,9 +13,11 @@ export default function PermissionPage() {
         <div className="text-center pt-4">
           <h1 className="text-2xl font-bold text-text mb-3">カメラの許可</h1>
           <p className="text-lg text-gray-600 leading-relaxed">
-            心の状態を測定するために、
+            このアプリでは、
             <br />
-            カメラを使用します
+            内側のカメラを使用し、
+            <br />
+            お顔を撮影します
           </p>
         </div>
 

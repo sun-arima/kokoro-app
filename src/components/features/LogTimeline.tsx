@@ -6,6 +6,22 @@ type Props = {
   logs: MoodLog[];
 };
 
+function getScoreEmoji(score: number) {
+  if (score >= 80) return '😊';
+  if (score >= 70) return '🙂';
+  if (score >= 60) return '😐';
+  if (score >= 50) return '😟';
+  return '😢';
+}
+
+function getScoreColor(score: number) {
+  if (score >= 80) return 'bg-green-100 border-green-300';
+  if (score >= 70) return 'bg-emerald-50 border-emerald-200';
+  if (score >= 60) return 'bg-yellow-50 border-yellow-200';
+  if (score >= 50) return 'bg-orange-50 border-orange-200';
+  return 'bg-red-50 border-red-200';
+}
+
 export default function LogTimeline({ logs }: Props) {
   const formatDate = (dateStr: string) => {
     const d = new Date(dateStr);
@@ -17,12 +33,9 @@ export default function LogTimeline({ logs }: Props) {
       {logs.map((log) => (
         <Card key={log.id}>
           <div className="flex items-start gap-4">
-            {/* Photo placeholder */}
-            <div className="w-14 h-14 rounded-xl bg-gray-200 flex-shrink-0 flex items-center justify-center">
-              <svg width="24" height="24" viewBox="0 0 24 24" fill="none" className="opacity-40">
-                <circle cx="12" cy="10" r="4" stroke="#2D3748" strokeWidth="1.5" />
-                <path d="M4 20 C4 16, 20 16, 20 20" stroke="#2D3748" strokeWidth="1.5" fill="none" />
-              </svg>
+            {/* Emotion icon based on score */}
+            <div className={`w-14 h-14 rounded-xl flex-shrink-0 flex items-center justify-center border ${getScoreColor(log.score)}`}>
+              <span className="text-3xl">{getScoreEmoji(log.score)}</span>
             </div>
             <div className="flex-1 min-w-0">
               <div className="flex items-center justify-between mb-2">

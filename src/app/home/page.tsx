@@ -5,7 +5,6 @@ import { Camera, FileText, Clock } from 'lucide-react';
 import PageWrapper from '@/components/layout/PageWrapper';
 import BottomNavigation from '@/components/layout/BottomNavigation';
 import Card from '@/components/ui/Card';
-import Button from '@/components/ui/Button';
 import ScoreBadge from '@/components/ui/ScoreBadge';
 import { dummyBadges, dummyTodayRecord } from '@/lib/dummyData';
 
@@ -16,8 +15,8 @@ export default function HomePage() {
   return (
     <>
       <PageWrapper showNav>
-        {/* Greeting - warm & friendly with emoji */}
-        <div className="mb-6">
+        {/* Greeting */}
+        <div className="mb-4">
           <h1 className="text-2xl font-bold text-text mb-1">
             🌸 田中さん、こんにちは
           </h1>
@@ -27,36 +26,20 @@ export default function HomePage() {
         </div>
 
         {/* Streak badge */}
-        <div className="mb-4 px-4 py-3 bg-primary/10 border border-primary/20 rounded-2xl flex items-center gap-2">
-          <span className="text-2xl">🔥</span>
+        <div className="mb-4 px-4 py-2.5 bg-primary/10 border border-primary/20 rounded-2xl flex items-center gap-2">
+          <span className="text-xl">🔥</span>
           <p className="text-base font-bold text-primary-dark">5日連続記録中！</p>
           <p className="text-sm text-gray-600">素晴らしいですね</p>
         </div>
 
-        {/* Monthly report notification */}
-        <div
-          className="mb-4 px-4 py-3 border border-accent/30 bg-accent/5 rounded-2xl flex items-center gap-3 cursor-pointer"
-          onClick={() => router.push('/report')}
-        >
-          <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
-            <FileText size={20} className="text-accent-dark" />
-          </div>
-          <div className="flex-1">
-            <p className="text-base font-bold text-text">今月のレポートが届きました</p>
-            <p className="text-sm text-gray-500">タップして確認する →</p>
-          </div>
-        </div>
-
-        {/* Start recording card */}
-        <Card className="mb-6">
-          <div className="flex items-center gap-4 mb-3">
-            <div className="w-12 h-12 rounded-full bg-primary/15 flex items-center justify-center flex-shrink-0">
-              <Camera size={24} className="text-primary" />
+        {/* Start recording card - TOP PRIORITY */}
+        <Card className="mb-5 border-2 border-primary/30 bg-gradient-to-b from-primary/5 to-white">
+          <div className="flex flex-col items-center text-center mb-4">
+            <div className="w-20 h-20 rounded-full bg-primary/15 flex items-center justify-center mb-3">
+              <Camera size={36} className="text-primary" />
             </div>
-            <div>
-              <h2 className="text-lg font-bold text-text">今日の心の状態を記録</h2>
-              <p className="text-sm text-gray-500">顔を撮影して、今の状態を確認しましょう</p>
-            </div>
+            <h2 className="text-xl font-bold text-text">今日の心の状態を記録</h2>
+            <p className="text-sm text-gray-500 mt-1">顔を撮影して、今の状態を確認しましょう</p>
           </div>
           <button
             onClick={() => router.push('/camera-guide')}
@@ -67,7 +50,7 @@ export default function HomePage() {
         </Card>
 
         {/* Today's record */}
-        <Card className="mb-6 border border-primary/20">
+        <Card className="mb-4 border border-primary/20">
           <h2 className="text-xl font-bold text-text mb-4">📝 今日の記録</h2>
           <div className="flex items-center gap-4 mb-3">
             <ScoreBadge score={todayRecord.score} size="lg" />
@@ -90,13 +73,41 @@ export default function HomePage() {
               <p className="text-lg text-text">💬 {todayRecord.memo}</p>
             </div>
           )}
+
+          {/* Family read status */}
+          <div className="mt-4 pt-3 border-t border-gray-100">
+            <div className="flex items-center gap-3">
+              <div className="flex -space-x-2">
+                <div className="w-8 h-8 rounded-full bg-accent/20 border-2 border-white flex items-center justify-center">
+                  <span className="text-sm">👩</span>
+                </div>
+                <div className="w-8 h-8 rounded-full bg-blue-100 border-2 border-white flex items-center justify-center">
+                  <span className="text-sm">👨</span>
+                </div>
+              </div>
+              <p className="text-sm text-gray-500">娘さん、息子さんはみました</p>
+            </div>
+          </div>
         </Card>
 
-        {/* Badges section */}
+        {/* Monthly report notification - moved lower */}
+        <div
+          className="mb-4 px-4 py-3 border border-accent/30 bg-accent/5 rounded-2xl flex items-center gap-3 cursor-pointer"
+          onClick={() => router.push('/report')}
+        >
+          <div className="w-10 h-10 rounded-full bg-accent/20 flex items-center justify-center flex-shrink-0">
+            <FileText size={20} className="text-accent-dark" />
+          </div>
+          <div className="flex-1">
+            <p className="text-base font-bold text-text">今月のレポートが届きました</p>
+            <p className="text-sm text-gray-500">タップして確認する →</p>
+          </div>
+        </div>
+
+        {/* Badges section - bottom */}
         <Card className="mb-6">
           <h2 className="text-xl font-bold text-text mb-4">🏅 バッジコレクション</h2>
 
-          {/* Achieved badges */}
           <p className="text-base font-medium text-primary-dark mb-3">達成したバッジ</p>
           <div className="grid grid-cols-3 gap-3 mb-5">
             {dummyBadges
@@ -112,7 +123,6 @@ export default function HomePage() {
               ))}
           </div>
 
-          {/* Future badge goals */}
           <p className="text-base font-medium text-gray-400 mb-3">つぎの目標</p>
           <div className="grid grid-cols-3 gap-3">
             {dummyBadges

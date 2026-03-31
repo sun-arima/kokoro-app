@@ -8,46 +8,6 @@ import Button from '@/components/ui/Button';
 
 const slides = [
   {
-    title: '顔を撮り、心の状態を測定します',
-    description:
-      'カメラであなたの顔を撮影するだけで、今の心の状態をスコアで確認できます。',
-    visual: (
-      <div className="flex flex-col items-center gap-5">
-        {/* Camera icon */}
-        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center">
-          <Camera size={48} className="text-primary" />
-        </div>
-        {/* Face to score flow */}
-        <div className="flex items-center gap-3">
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
-              <svg width="40" height="50" viewBox="0 0 40 50" fill="none">
-                <ellipse cx="20" cy="18" rx="14" ry="16" fill="#c4c4c4" />
-                <ellipse cx="20" cy="44" rx="18" ry="10" fill="#c4c4c4" />
-              </svg>
-            </div>
-            <span className="text-xs text-gray-400 mt-1">撮影</span>
-          </div>
-          <span className="text-2xl text-gray-300">→</span>
-          <div className="flex flex-col items-center">
-            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
-              <span className="text-white text-xl font-bold">82点</span>
-            </div>
-            <span className="text-xs text-gray-400 mt-1">心の状態スコア</span>
-          </div>
-        </div>
-        {/* Mood range */}
-        <div className="w-56">
-          <div className="h-2.5 rounded-full bg-gradient-to-r from-blue-300 via-yellow-300 to-green-400" />
-          <div className="flex justify-between mt-1.5 text-xs text-gray-400 font-medium">
-            <span>緊張</span>
-            <span>リラックス</span>
-          </div>
-        </div>
-      </div>
-    ),
-  },
-  {
     title: '日々の出来事を簡単に記録',
     description:
       '振り返ることができます。毎日の積み重ねが、あなたの心の健康を守ります。',
@@ -88,7 +48,47 @@ const slides = [
     ),
   },
   {
-    title: '家族に記録を届けることもできます',
+    title: '顔を撮り、心の状態を測定します',
+    description:
+      '毎日の心の状態を見える化して、あなたの心の健康をサポートします。',
+    visual: (
+      <div className="flex flex-col items-center gap-5">
+        {/* Camera icon */}
+        <div className="w-24 h-24 rounded-full bg-primary/10 flex items-center justify-center">
+          <Camera size={48} className="text-primary" />
+        </div>
+        {/* Face to score flow */}
+        <div className="flex items-center gap-3">
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-gray-200 flex items-center justify-center">
+              <svg width="40" height="50" viewBox="0 0 40 50" fill="none">
+                <ellipse cx="20" cy="18" rx="14" ry="16" fill="#c4c4c4" />
+                <ellipse cx="20" cy="44" rx="18" ry="10" fill="#c4c4c4" />
+              </svg>
+            </div>
+            <span className="text-xs text-gray-400 mt-1">撮影</span>
+          </div>
+          <span className="text-2xl text-gray-300">→</span>
+          <div className="flex flex-col items-center">
+            <div className="w-16 h-16 rounded-full bg-primary flex items-center justify-center">
+              <span className="text-white text-xl font-bold">82点</span>
+            </div>
+            <span className="text-xs text-gray-400 mt-1">心の状態スコア</span>
+          </div>
+        </div>
+        {/* Mood range */}
+        <div className="w-56">
+          <div className="h-2.5 rounded-full bg-gradient-to-r from-blue-300 via-yellow-300 to-green-400" />
+          <div className="flex justify-between mt-1.5 text-xs text-gray-400 font-medium">
+            <span>緊張</span>
+            <span>リラックス</span>
+          </div>
+        </div>
+      </div>
+    ),
+  },
+  {
+    title: '家族に元気な姿を届けることもできます',
     description:
       '離れて暮らす家族にあなたの様子を伝えられます。家族からメッセージも届きます。',
     visual: (
