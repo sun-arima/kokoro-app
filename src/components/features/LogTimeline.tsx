@@ -14,14 +14,6 @@ function getScoreEmoji(score: number) {
   return '😢';
 }
 
-function getScoreColor(score: number) {
-  if (score >= 80) return 'bg-green-100 border-green-300';
-  if (score >= 70) return 'bg-emerald-50 border-emerald-200';
-  if (score >= 60) return 'bg-yellow-50 border-yellow-200';
-  if (score >= 50) return 'bg-orange-50 border-orange-200';
-  return 'bg-red-50 border-red-200';
-}
-
 export default function LogTimeline({ logs }: Props) {
   const formatDate = (dateStr: string) => {
     const d = new Date(dateStr);
@@ -29,22 +21,20 @@ export default function LogTimeline({ logs }: Props) {
   };
 
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-3">
       {logs.map((log) => (
         <Card key={log.id}>
-          <div className="flex items-start gap-4">
-            {/* Emotion icon based on score */}
-            <div className={`w-14 h-14 rounded-xl flex-shrink-0 flex items-center justify-center border ${getScoreColor(log.score)}`}>
-              <span className="text-3xl">{getScoreEmoji(log.score)}</span>
-            </div>
-            <div className="flex-1 min-w-0">
-              <div className="flex items-center justify-between mb-2">
-                <span className="text-base text-gray-500">{formatDate(log.date)}</span>
-                <ScoreBadge score={log.score} />
-              </div>
-              <p className="text-lg text-text">{log.memo}</p>
+          {/* Date top-left */}
+          <p className="text-sm text-gray-400 mb-2">{formatDate(log.date)}</p>
+          <div className="flex items-start gap-3">
+            {/* Score pill: emoji + score */}
+            <div className="flex items-center gap-1.5 bg-primary/10 rounded-full px-3 py-1.5 flex-shrink-0">
+              <span className="text-lg">{getScoreEmoji(log.score)}</span>
+              <span className="text-base font-bold text-primary">{log.score}点</span>
             </div>
           </div>
+          {/* Memo */}
+          <p className="text-base text-text mt-2 leading-relaxed">{log.memo}</p>
         </Card>
       ))}
     </div>

@@ -21,7 +21,8 @@ export default function BottomNavigation() {
   const router = useRouter();
 
   const isActive = (path: string) => {
-    return pathname === path;
+    const normalized = pathname.replace(/\/$/, '');
+    return normalized === path;
   };
 
   return (
@@ -35,8 +36,12 @@ export default function BottomNavigation() {
               isActive(item.path) ? 'text-primary' : 'text-gray-400'
             }`}
           >
-            {item.icon}
-            <span className="text-sm font-medium">{item.label}</span>
+            <div className={`flex items-center justify-center w-10 h-10 rounded-full transition-colors ${
+              isActive(item.path) ? 'bg-primary/15' : ''
+            }`}>
+              {item.icon}
+            </div>
+            <span className={`text-xs font-medium ${isActive(item.path) ? 'text-primary font-bold' : ''}`}>{item.label}</span>
           </button>
         ))}
       </div>
