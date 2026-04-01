@@ -10,6 +10,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
   return (
     <html lang="ja">
       <body className="flex items-center justify-center min-h-screen bg-gray-100">
+        <div className="phone-frame-wrapper">
         {/* Phone frame */}
         <div className="phone-frame">
           {/* Notch */}
@@ -18,6 +19,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="phone-screen">
             {children}
           </div>
+        </div>
         </div>
       </body>
     </html>

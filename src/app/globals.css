@@ -23,6 +23,15 @@ html, body {
   -webkit-tap-highlight-color: transparent;
 }
 
+/* Phone frame wrapper for scaling */
+.phone-frame-wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+
 /* Phone frame */
 .phone-frame {
   position: relative;
@@ -32,6 +41,24 @@ html, body {
   border-radius: 50px;
   padding: 12px;
   box-shadow: 0 25px 60px rgba(0, 0, 0, 0.3), 0 0 0 2px #333, inset 0 0 0 2px #1a1a1a;
+  transform-origin: center center;
+}
+
+/* Scale phone frame to fit viewport */
+@media (max-height: 900px) {
+  .phone-frame {
+    scale: calc(100vh / 900);
+  }
+}
+@media (max-width: 430px) {
+  .phone-frame {
+    scale: calc(100vw / 430);
+  }
+}
+@media (max-height: 900px) and (max-width: 430px) {
+  .phone-frame {
+    scale: min(calc(100vh / 900), calc(100vw / 430));
+  }
 }
 
 .phone-notch {
