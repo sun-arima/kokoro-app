@@ -2,6 +2,7 @@
 
 import { FamilyTimelineEntry } from '@/lib/types';
 import Card from '@/components/ui/Card';
+import { assetPath } from '@/lib/basePath';
 
 type Props = {
   entries: FamilyTimelineEntry[];
@@ -30,9 +31,9 @@ export default function FamilyTimeline({ entries }: Props) {
           <div key={i} className="flex items-center gap-3 py-3 first:pt-0 last:pb-0">
             {/* Person icon */}
             {item.from.includes('美咲') ? (
-              <img src="/family-hanako.png" alt="美咲" className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+              <img src={assetPath("/family-hanako.png")} alt="美咲" className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
             ) : item.from.includes('健太') ? (
-              <img src="/family-taro.png" alt="健太" className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
+              <img src={assetPath("/family-taro.png")} alt="健太" className="w-10 h-10 rounded-full object-cover flex-shrink-0" />
             ) : (
               <div className="w-10 h-10 rounded-full bg-primary/10 flex items-center justify-center flex-shrink-0">
                 <span className="text-lg">👧</span>

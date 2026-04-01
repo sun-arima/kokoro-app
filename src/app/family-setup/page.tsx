@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import PageWrapper from '@/components/layout/PageWrapper';
+import { assetPath } from '@/lib/basePath';
 import Button from '@/components/ui/Button';
 import Card from '@/components/ui/Card';
 
@@ -122,7 +123,7 @@ export default function FamilySetupPage() {
                 {settings.sharePhoto && (
                   <div className="w-20 h-20 rounded-xl overflow-hidden">
                     <img
-                      src="/face1.png"
+                      src={assetPath("/face1.png")}
                       alt="顔写真"
                       className="w-full h-full object-cover"
                     />

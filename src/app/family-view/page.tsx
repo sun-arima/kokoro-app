@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import PageWrapper from '@/components/layout/PageWrapper';
 import BottomNavigation from '@/components/layout/BottomNavigation';
+import { assetPath } from '@/lib/basePath';
 import Card from '@/components/ui/Card';
 
 const familyRecords = [
@@ -85,7 +86,7 @@ export default function FamilyViewPage() {
         {/* Header with family member info */}
         <div className="flex items-center gap-3 mb-2">
           <img
-            src="/family-taro.png"
+            src={assetPath("/family-taro.png")}
             alt="健太"
             className="w-12 h-12 rounded-full object-cover border-2 border-primary"
           />

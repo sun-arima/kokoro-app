@@ -7,6 +7,7 @@ import BottomNavigation from '@/components/layout/BottomNavigation';
 import Card from '@/components/ui/Card';
 import ScoreBadge from '@/components/ui/ScoreBadge';
 import { dummyBadges, dummyTodayRecord } from '@/lib/dummyData';
+import { assetPath } from '@/lib/basePath';
 
 export default function HomePage() {
   const router = useRouter();
@@ -78,8 +79,8 @@ export default function HomePage() {
           <div className="mt-4 pt-3 border-t border-gray-100">
             <div className="flex items-center gap-3">
               <div className="flex -space-x-2">
-                <img src="/family-hanako.png" alt="美咲" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
-                <img src="/family-taro.png" alt="健太" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                <img src={assetPath("/family-hanako.png")} alt="美咲" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
+                <img src={assetPath("/family-taro.png")} alt="健太" className="w-8 h-8 rounded-full border-2 border-white object-cover" />
               </div>
               <p className="text-sm text-gray-500">美咲、健太は見ました</p>
             </div>
