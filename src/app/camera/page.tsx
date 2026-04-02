@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import PageWrapper from '@/components/layout/PageWrapper';
+import { assetPath } from '@/lib/basePath';
 
 export default function CameraPage() {
   const router = useRouter();
@@ -29,10 +30,11 @@ export default function CameraPage() {
         {/* Camera preview with face */}
         <div className="relative w-56 h-56">
           <div className="w-full h-full rounded-3xl bg-gray-200 overflow-hidden flex items-center justify-center">
-            <svg width="120" height="150" viewBox="0 0 120 150" fill="none">
-              <ellipse cx="60" cy="55" rx="40" ry="48" fill="#c4c4c4" />
-              <ellipse cx="60" cy="130" rx="55" ry="35" fill="#c4c4c4" />
-            </svg>
+            <img
+              src={assetPath("/sokutei.png")}
+              alt="測定中"
+              className="w-full h-full object-cover"
+            />
           </div>
           {/* Scanning frame */}
           <div className="absolute inset-4 rounded-[2rem] border-4 border-primary animate-pulse" />
