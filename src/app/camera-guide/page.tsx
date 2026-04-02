@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
 import { Camera } from 'lucide-react';
 import PageWrapper from '@/components/layout/PageWrapper';
+import { assetPath } from '@/lib/basePath';
 
 function Step1() {
   return (
@@ -38,11 +39,18 @@ function Step2({ onReadyChange }: { onReadyChange: (ready: boolean) => void }) {
       <div className="relative w-56 h-56 mb-6">
         {/* Camera preview background */}
         <div className="w-full h-full rounded-3xl bg-gray-200 overflow-hidden flex items-center justify-center">
-          {/* Simulated face silhouette */}
-          <svg width="120" height="150" viewBox="0 0 120 150" fill="none">
-            <ellipse cx="60" cy="55" rx="40" ry="48" fill="#c4c4c4" />
-            <ellipse cx="60" cy="130" rx="55" ry="35" fill="#c4c4c4" />
-          </svg>
+          {ready ? (
+            <img
+              src={assetPath("/sokutei.png")}
+              alt="測定準備完了"
+              className="w-full h-full object-cover"
+            />
+          ) : (
+            <svg width="120" height="150" viewBox="0 0 120 150" fill="none">
+              <ellipse cx="60" cy="55" rx="40" ry="48" fill="#c4c4c4" />
+              <ellipse cx="60" cy="130" rx="55" ry="35" fill="#c4c4c4" />
+            </svg>
+          )}
         </div>
         {/* Face detection frame */}
         <div
